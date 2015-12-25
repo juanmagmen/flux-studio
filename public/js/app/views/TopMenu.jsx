@@ -29,7 +29,8 @@ define([
     'app/stores/global-store',
     'app/constants/device-constants',
     'jsx!views/print/Monitor',
-    'jsx!widgets/Modal'
+    'jsx!widgets/Modal',
+    'app/actions/print'
 ], function(
     $,
     React,
@@ -61,7 +62,8 @@ define([
     GlobalStore,
     DeviceConstants,
     Monitor,
-    Modal
+    Modal,
+    director
 ) {
     'use strict';
 
@@ -501,6 +503,12 @@ define([
                 );
             },
 
+            _handleWebsocketCommand: function(e) {
+                if(e.keyCode === 13) {
+                    director.send(this.refs.command.getDOMNode().value);
+                }
+            },
+
             render : function() {
                 var menuItems       = this._renderStudioFunctions(),
                     deviceList      = this._renderDeviceList(),
@@ -597,6 +605,10 @@ define([
                         </div>
 
                         {monitorPanel}
+
+                        <div>
+                            <input ref="command" onKeyDown={this._handleWebsocketCommand} type="text" />
+                        </div>
                     </div>
                 );
             }

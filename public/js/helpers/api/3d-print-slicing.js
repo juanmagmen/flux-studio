@@ -220,6 +220,19 @@ define([
                 ws.send(`stop`);
 
                 return d.promise();
+            },
+            send: function(command) {
+
+                events.onMessage = function(result) {
+                    console.log(result);
+                };
+
+                events.onError = function(result) {
+                    console.log(result);
+                };
+
+                ws.send(command);
+
             }
         };
     };

@@ -916,7 +916,7 @@ define([
             objects.forEach(function(o) {
                 o.outlineMesh.visible = false;
             });
-            
+
             if(obj.outlineMesh) {
                 obj.outlineMesh.visible = true;
             }
@@ -1574,6 +1574,10 @@ define([
         return vector;
     }
 
+    function send(command) {
+        slicer.send(command);
+    }
+
     return {
         init                : init,
         appendModel         : appendModel,
@@ -1597,6 +1601,7 @@ define([
         changePreviewLayer  : changePreviewLayer,
         executePrint        : executePrint,
         setCameraPosition   : setCameraPosition,
-        clearSelection      : clearSelection
+        clearSelection      : clearSelection,
+        send                : send
     };
 });
