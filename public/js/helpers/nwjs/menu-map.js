@@ -239,6 +239,29 @@ define([
                 ]
             });
         }
+    
+        menuMap.push({
+            label: "Laser",
+            subItems: [
+                {
+                    label: "PaperShoot - Front",
+                    enabled: true,
+                    onClick: function() {
+                        $(".laser-studio .laser-object").css("background","url(/img/laser-platform-1.png)");
+                        $(".laser-studio .laser-object").css("background-size","100% 100%");
+                    }
+                },
+                {
+                    label: "PaperShoot - Back",
+                    enabled: true,
+                    onClick: function() {
+                        $(".laser-studio .laser-object").css("background","url(/img/laser-platform-2.png)");
+                        $(".laser-studio .laser-object").css("background-size","100% 100%");
+                    }
+                }
+            ]
+            }
+        );
 
         menuMap.push({
             label: lang.help.label,
