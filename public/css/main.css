@@ -5796,8 +5796,7 @@ input.switch:checked ~ label:after {
     height: 510px;
     overflow: hidden;
     position: absolute;
-    width: 510px;
-  }
+    width: 510px; }
 
 .laser-studio .laser-object .ft-container {
     z-index: 1; }
